@@ -125,6 +125,10 @@ const App = () => {
             default:
               alert("Error submitting form");
           }
+        } else {
+          alert("Form submitted successfully");
+          window.open("about:blank", "_self");
+          window.close();
         }
       })
       .catch((error) => {
@@ -261,7 +265,7 @@ const App = () => {
               fontSize: "16px",
             }}
           >
-            Submit
+            {!personalDetailsSubmitted ? "Next" : "Submit"}
           </button>
         </Form>
       </Formik>
