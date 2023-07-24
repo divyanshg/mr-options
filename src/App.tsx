@@ -205,7 +205,7 @@ const App = () => {
                 <div className="flex flex-col space-y-2">
                   <label>Semester:</label>
                   <Field
-                    type="text"
+                    type="number"
                     name="Semester"
                     className="border-2 border-gray-400 px-3 py-2 focus:outline-blue-500 rounded-lg w-full"
                   />
