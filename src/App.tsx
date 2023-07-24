@@ -45,18 +45,22 @@ const App = () => {
     sanityClient
       .fetch('*[_type == "questions"]{question, questionId}')
       .then((data) => {
-        const sortedData = data.sort((a, b) => a.questionId - b.questionId);
+        const sortedData = data.sort(
+          (a: Question, b: Question) => a.questionId - b.questionId
+        );
         setQuestions(sortedData);
       })
       .catch((error) => console.error("Error fetching questions:", error));
   }, []);
 
-  const formatResponses = (responses: object): object[] => {
+  const formatResponses = (
+    responses: Record<string, string | number>
+  ): object[] => {
     const formatedResponses: object[] = [];
 
     Object.keys(responses).map((response) => {
       const questionId = response.split("_")[1];
-      const optionIndex = options.indexOf(responses[response]) + 1;
+      const optionIndex = options.indexOf(responses[response] as string) + 1;
 
       formatedResponses.push({
         questionId,
@@ -67,22 +71,22 @@ const App = () => {
     return formatedResponses;
   };
 
-  const handleSubmit = (values: object) => {
+  const handleSubmit = (values: Record<string, string | number>) => {
     if (!personalDetailsSubmitted) {
       setPersonalDetailsSubmitted(true);
       return;
     }
 
-    const only_questions = Object.keys(values)
+    const only_questions: Record<string, string | number> = Object.keys(values)
       .filter((key) => key.includes("question"))
-      .reduce((obj, key) => {
+      .reduce((obj: Record<string, string | number>, key: string) => {
         obj[key] = values[key];
         return obj;
       }, {});
 
     const valuesWithoutQuestions = Object.keys(values)
       .filter((key) => !key.includes("question"))
-      .reduce((obj, key) => {
+      .reduce((obj: Record<string, string | number>, key) => {
         obj[key] = values[key];
         return obj;
       }, {});
@@ -99,7 +103,7 @@ const App = () => {
     });
   };
 
-  const saveData = (data: object) => {
+  const saveData = (data: Record<string, string>) => {
     setIsLoading(true);
     const formData = new FormData();
 
