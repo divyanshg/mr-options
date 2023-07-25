@@ -164,7 +164,7 @@ const FormPage = () => {
   return (
     <div className="px-3">
       {" "}
-      <div className="w-full flex flex-row items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
+      <div className="w-full flex flex-col items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
         <img
           src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
           className="w-[200px] "

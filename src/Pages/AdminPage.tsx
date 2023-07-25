@@ -66,6 +66,7 @@ const SurveyTable = ({ data }: {data: any}) => {
 export default function AdminPage(): JSX.Element{
     const [allData, setAllData] = useState<any[]>([])
     const [selectedRollNumber, setSelectedRollNumber] = useState(allData[0]?.RollNumber);
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const handleSelectChange = (event: any) => {
       setSelectedRollNumber(event.target.value);
@@ -76,24 +77,33 @@ export default function AdminPage(): JSX.Element{
     useEffect(() => {
         fetch("https://script.googleusercontent.com/macros/echo?user_content_key=tVwz64Sl1klQon_lZLW4myQqx3cYSxOkcYVyT8pZG_u7bMb01fgxD5IqM4yADIdduFCn7nN3SEi38uOiVm1GxqSppL_xDREzm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMi42bRYzZy3riDdvlAkWszRm9m-R0scv3xLo0-S3yCaacQCdOZWlgNkRUrXQEBQUV1gSvSZXOOM4ZYbj1USgFmmKbFgBBuMm9z9Jw9Md8uu&lib=Mj9sCKg167WlSD7i4YbtxJMb_W9z17S8P")
             .then(res => res.json())
-            .then(res => setAllData(res))
+            .then(res => {
+                setIsLoading(false)
+                setAllData(res)
+            })
             .catch(err => {
                 alert("Something went wrong")
                 console.log(err)
             })
     }, [])
 
+    if(isLoading){
+        return (
+            <p>Loading...</p>
+        )
+    }
+
     return (
        <div>
-      <div className="w-full flex flex-row items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
-        <img
-          src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
-          className="w-[200px] "
-        />
-        <h2 className='text-xl font-semibold'>School of Leadership and Management</h2>
-        <h2 className='text-xl font-semibold'>Responses</h2>
+            <div className="w-full flex flex-col items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
+                <img
+                src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
+                className="w-[200px] "
+                />
+                <h2 className='text-xl font-semibold'>School of Leadership and Management</h2>
+                <h2 className='text-xl font-semibold'>Responses</h2>
 
-      </div>
+            </div>
       <div>
         <label htmlFor="selectRollNumber">Select RollNumber:</label>
         <select
