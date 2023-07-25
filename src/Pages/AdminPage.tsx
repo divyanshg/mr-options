@@ -85,7 +85,15 @@ export default function AdminPage(): JSX.Element{
 
     return (
        <div>
-      <h1>Survey Results</h1>
+      <div className="w-full flex flex-row items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
+        <img
+          src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
+          className="w-[200px] "
+        />
+        <h2 className='text-xl font-semibold'>School of Leadership and Management</h2>
+        <h2 className='text-xl font-semibold'>Responses</h2>
+
+      </div>
       <div>
         <label htmlFor="selectRollNumber">Select RollNumber:</label>
         <select
