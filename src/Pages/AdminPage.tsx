@@ -63,12 +63,12 @@ export const SurveyTable = ({ data }: {data: any}) => {
         <thead>
           <tr>
             <th className="p-2 border">Question No.</th>
-            <th className="p-2 border">I</th>
-            <th className="p-2 border">II</th>
-            <th className="p-2 border">III</th>
-            <th className="p-2 border">IV</th>
-            <th className="p-2 border">V</th>
-            <th className="p-2 border">VI</th>
+            <th className="p-2 border">A</th>
+            <th className="p-2 border">B</th>
+            <th className="p-2 border">C</th>
+            <th className="p-2 border">D</th>
+            <th className="p-2 border">E</th>
+            <th className="p-2 border">F</th>
           </tr>
         </thead>
         <tbody>
