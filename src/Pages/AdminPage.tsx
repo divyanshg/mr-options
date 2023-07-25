@@ -1,5 +1,7 @@
 import {useEffect , useState} from "react";
 
+const points = [0,1,2,3,4]
+
 const SurveyTable = ({ data }: {data: any}) => {
   // Function to calculate the total count of each option
   const calculateTotalCount = (optionNum: number) => {
@@ -12,7 +14,7 @@ const SurveyTable = ({ data }: {data: any}) => {
         }
       }
     }
-    return totalCount;
+    return totalCount*points[optionNum - 1];
   };
 
   return (
