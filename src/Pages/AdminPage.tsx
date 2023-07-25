@@ -47,7 +47,7 @@ export const SurveyTable = ({ data }: {data: any}) => {
     Array.from({ length: 36 }, (_, index) => index + 1).map((questionNum) => {
     data.forEach((student: any) => {
         if(markings[`question_${questionNum}`] === optionNum){
-          totalCount += points[student[`Question_${questionNum}`] - 1]
+          totalCount += points[student[`Question_${questionNum}`] - 1] as number
         }
       })
   })
