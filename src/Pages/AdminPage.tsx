@@ -68,16 +68,16 @@ const StudentData = ({data}: any) => {
   return (
     <div className="flex flex-col my-4 border-2 border-gray-200 rounded-lg p-3">
       <div>
-        <span>Student Name: </span>
-        <span>{data["Student Name"]}</span>
+        <span className="text-lg">Student Name: </span>
+        <span className="text-lg">{data["Student Name"]}</span>
       </div>
       <div>
-        <span>Branch: </span>
-        <span>{data.Branch}</span>
+        <span className="text-lg">Branch: </span>
+        <span className="text-lg">{data.Branch}</span>
       </div>
       <div>
-        <span>Semester: </span>
-        <span>{data.Semester}</span>
+        <span className="text-lg">Semester: </span>
+        <span className="text-lg">{data.Semester}</span>
       </div>
     </div>
   )
