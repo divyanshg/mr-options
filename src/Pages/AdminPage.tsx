@@ -51,7 +51,7 @@ const SurveyTable = ({ data }: {data: any}) => {
 
 export default function AdminPage(): JSX.Element{
     const [allData, setAllData] = useState<any[]>([])
-    const [selectedRollNumber, setSelectedRollNumber] = useState(allData[0].RollNumber);
+    const [selectedRollNumber, setSelectedRollNumber] = useState(allData[0]?.RollNumber);
 
     const handleSelectChange = (event: any) => {
       setSelectedRollNumber(event.target.value);
