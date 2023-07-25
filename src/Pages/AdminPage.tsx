@@ -69,18 +69,15 @@ export default function AdminPage(): JSX.Element{
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [loggedIn, setLoggedIn] = useState(false);
 
-    const handleAdminLogin = () => {
-        const adminPassword = 'yourAdminPassword'; // Replace this with your actual admin password
+    const adminPassword = 'yourAdminPassword'; // Replace this with your actual admin password
 
-        const inputPassword = prompt('Enter Admin Password:');
-        if (inputPassword === adminPassword) {
+    const inputPassword = prompt('Enter Admin Password:');
+    if (inputPassword === adminPassword) {
         setLoggedIn(true);
-        } else {
+    } else {
         alert('Invalid password. Please try again.');
-        }
-    };
+    }
 
-    useEffect(() => handleAdminLogin(), [])
 
     const handleLogout = () => {
         setLoggedIn(false);
