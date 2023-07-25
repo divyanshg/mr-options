@@ -1,6 +1,6 @@
 import {useEffect , useState} from "react";
 
-//const points = [0,1,2,3,4]
+const points = [0,1,2,3,4, "*"]
 const markings: Record<string, number> =
 {
 question_1: 3,
@@ -80,7 +80,7 @@ export const SurveyTable = ({ data }: {data: any}) => {
                       key={student.RollNumber}
                       className={markings[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
                     >
-                      {markings[`question_${questionNum}`] === optionNum ? student[`Question_${questionNum}`] : ''}
+                      {markings[`question_${questionNum}`] === optionNum  ? points[student[`Question_${questionNum}`] - 1] : ''}
                     </span>
                   ))}
                 </td>
