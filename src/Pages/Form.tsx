@@ -286,7 +286,7 @@ const FormPage = () => {
           </button>
         </Form>
       </Formik>}
-      {submitted && <SurveyTable data={allData} />}
+      {submitted && <SurveyTable data={[allData]} />}
     </div>
   );
 };
