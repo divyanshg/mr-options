@@ -62,6 +62,7 @@ const FormPage = () => {
         .then(res => res.json())
         .then(res => {
             setIsLoading(false)
+            console.log({res})
             console.log(res.filter((r:any) => r.RollNumber === roll))
         })
         .catch(err => {
