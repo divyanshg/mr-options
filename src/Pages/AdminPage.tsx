@@ -1,6 +1,6 @@
 import {useEffect , useState} from "react";
 
-const points = [0,1,2,3,4]
+//const points = [0,1,2,3,4]
 const markings =[
 {
 question_1: 3,
