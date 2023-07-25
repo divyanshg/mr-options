@@ -9,42 +9,49 @@ const SurveyTable = ({ data }: {data: any}) => {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Question No.</th>
-          <th>Option 1</th>
-          <th>Option 2</th>
-          <th>Option 3</th>
-          <th>Option 4</th>
-          <th>Option 5</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Array.from({ length: 36 }, (_, index) => index + 1).map((questionNum) => (
-          <tr key={questionNum}>
-            <td>{questionNum}</td>
+    <div className="my-4">
+      <table className="w-full border-collapse table-auto">
+        <thead>
+          <tr>
+            <th className="border p-2">Question No.</th>
+            <th className="border p-2">Option 1</th>
+            <th className="border p-2">Option 2</th>
+            <th className="border p-2">Option 3</th>
+            <th className="border p-2">Option 4</th>
+            <th className="border p-2">Option 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Array.from({ length: 36 }, (_, index) => index + 1).map((questionNum) => (
+            <tr key={questionNum} className="text-center">
+              <td className="border p-2">{questionNum}</td>
+              {[1, 2, 3, 4, 5].map((optionNum) => (
+                <td key={optionNum} className="border p-2">
+                  {data.map((student: any) => (
+                    <span
+                      key={student.RollNumber}
+                      className={student[`Question_${questionNum}`] === optionNum ? 'font-bold' : ''}
+                    >
+                      {student[`Question_${questionNum}`] === optionNum ? '*' : ''}
+                    </span>
+                  ))}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td className="border p-2 font-bold">Total Count</td>
             {[1, 2, 3, 4, 5].map((optionNum) => (
-              <td key={optionNum}>
-                {data.map((student: any) => (
-                  <span key={student.RollNumber}>
-                    {student[`Question_${questionNum}`] === optionNum ? '*' : ''}
-                  </span>
-                ))}
+              <td key={optionNum} className="border p-2">
+                {calculateTotalCount(optionNum)}
               </td>
             ))}
           </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td>Total Count</td>
-          {[1, 2, 3, 4, 5].map((optionNum) => (
-            <td key={optionNum}>{calculateTotalCount(optionNum)}</td>
-          ))}
-        </tr>
-      </tfoot>
-    </table>
+        </tfoot>
+      </table>
+    </div>
   );
 };
 
