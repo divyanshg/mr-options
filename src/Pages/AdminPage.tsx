@@ -40,7 +40,7 @@ question_34: 5,
 question_35:1,
 question_36:1
 }]
-export const SurveyTable = ({ data, studentResponse }: {data: any, studentResponse?: any}) => {
+export const SurveyTable = ({ data }: {data: any, studentResponse?: any}) => {
   // Function to calculate the total count of each option
   const calculateTotalCount = (optionNum: number) => {
     let totalCount = 0;
