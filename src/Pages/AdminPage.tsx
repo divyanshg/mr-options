@@ -1,7 +1,7 @@
 import {useEffect , useState} from "react";
 
 //const points = [0,1,2,3,4]
-const markings =[
+const markings: Record<string, number> =
 {
 question_1: 3,
 question_2: 6,
@@ -39,7 +39,7 @@ question_33: 6,
 question_34: 5,
 question_35:1,
 question_36:1
-}]
+}
 export const SurveyTable = ({ data,studentResponse }: {data: any, studentResponse?: any}) => {
   // Function to calculate the total count of each option
   const calculateTotalCount = (optionNum: number) => {
@@ -75,12 +75,12 @@ export const SurveyTable = ({ data,studentResponse }: {data: any, studentRespons
               <td className="border p-2">{questionNum}</td>
               {[1, 2, 3, 4, 5, 6].map((optionNum) => (
                 <td key={optionNum} className="border p-2">
-                  {data.map((student: any) => (
+                  {studentResponse.map((student: any) => (
                     <span
                       key={student.RollNumber}
-                      className={student[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
+                      className={markings[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
                     >
-                      {student[`question_${questionNum}`] === optionNum ? studentResponse[`Question_${questionNum}`] : ''}
+                      {markings[`question_${questionNum}`] === optionNum ? student[`Question_${questionNum}`] : ''}
                     </span>
                   ))}
                 </td>
