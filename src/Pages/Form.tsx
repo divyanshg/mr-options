@@ -34,6 +34,27 @@ const initialValues = {
   Semester: "",
 };
 
+function getHumanReadableDateTime() {
+  const now = new Date();
+
+  // Get date components
+  const year = now.getFullYear();
+  const month = now.toLocaleString("default", { month: "long" }); // e.g., "January"
+  const day = now.getDate();
+
+  // Get time components
+  let hours = now.getHours();
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12; // Convert to 12-hour format
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const seconds = now.getSeconds().toString().padStart(2, "0");
+
+  // Concatenate the components into a human-readable date and time string
+  const humanReadableDateTime = `${month} ${day}, ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
+
+  return humanReadableDateTime;
+}
+
 const FormPage = (): JSX.Element => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [personalDetailsSubmitted, setPersonalDetailsSubmitted] =
@@ -304,6 +325,15 @@ const FormPage = (): JSX.Element => {
           <div className="flex flex-col p-3 my-4 border-2 border-gray-200 rounded-lg">
             <div>
               <span className="text-lg font-semibold underline">
+                Roll Number:
+              </span>
+              <span className="text-lg font-semibold">
+                {" "}
+                {personalDetails.RollNumber}
+              </span>
+            </div>
+            <div>
+              <span className="text-lg font-semibold underline">
                 Student Name:
               </span>
               <span className="text-lg font-semibold">
@@ -329,7 +359,10 @@ const FormPage = (): JSX.Element => {
               <span className="text-lg font-semibold underline">
                 Submitted At:
               </span>
-              <span className="text-lg font-semibold"> Just Now</span>
+              <span className="text-lg font-semibold">
+                {" "}
+                {getHumanReadableDateTime()}
+              </span>
             </div>
           </div>
           <SurveyTable data={[allData]} />
