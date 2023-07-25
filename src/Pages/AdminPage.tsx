@@ -80,7 +80,7 @@ export const SurveyTable = ({ data, studentResponse }: {data: any, studentRespon
                       key={student.RollNumber}
                       className={student[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
                     >
-                      {student[`question_${questionNum}`] === optionNum ? points[studentReponse[`Question_${questionNum}`] - 1] : ''}
+                      {student[`question_${questionNum}`] === optionNum ? points[studentResponse[`Question_${questionNum}`] - 1] : ''}
                     </span>
                   ))}
                 </td>
