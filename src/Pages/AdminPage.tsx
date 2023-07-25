@@ -69,7 +69,7 @@ export default function AdminPage(): JSX.Element{
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [loggedIn, setLoggedIn] = useState(false);
 
-    const adminPassword = 'yourAdminPassword'; // Replace this with your actual admin password
+    const adminPassword = 'testpassword';
 
     const inputPassword = prompt('Enter Admin Password:');
     if (inputPassword === adminPassword) {
