@@ -40,7 +40,7 @@ question_34: 5,
 question_35:1,
 question_36:1
 }
-export const SurveyTable = ({ data,studentResponse }: {data: any, studentResponse?: any}) => {
+export const SurveyTable = ({ data }: {data: any}) => {
   // Function to calculate the total count of each option
   const calculateTotalCount = (optionNum: number) => {
     let totalCount = 0;
@@ -75,7 +75,7 @@ export const SurveyTable = ({ data,studentResponse }: {data: any, studentRespons
               <td className="border p-2">{questionNum}</td>
               {[1, 2, 3, 4, 5, 6].map((optionNum) => (
                 <td key={optionNum} className="border p-2">
-                  {studentResponse.map((student: any) => (
+                  {data.map((student: any) => (
                     <span
                       key={student.RollNumber}
                       className={markings[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
@@ -200,7 +200,7 @@ export default function AdminPage(): JSX.Element{
             </select>
         </div>
         {selectedStudentData && <StudentData data={selectedStudentData} /> }
-        {selectedStudentData && <SurveyTable data={markings} studentResponse={[selectedStudentData]} />}
+        {selectedStudentData && <SurveyTable data={[selectedStudentData]} />}
         </div>
         )
           }
