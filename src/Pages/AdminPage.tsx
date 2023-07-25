@@ -200,7 +200,7 @@ export default function AdminPage(): JSX.Element{
             </select>
         </div>
         {selectedStudentData && <StudentData data={selectedStudentData} /> }
-        {selectedStudentData && <SurveyTable data={markings} />}
+        {selectedStudentData && <SurveyTable data={markings} studentResponse={[selectedStudentData]} />}
         </div>
         )
           }
