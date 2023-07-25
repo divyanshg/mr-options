@@ -16,10 +16,10 @@ question_10: 4,
 question_11: 1,
 question_12: 4,
 question_13: 5,
-question_14: 3
+question_14: 3,
 question_15: 5,
 question_16: 3,
-question_17 : 2
+question_17 : 2,
 question_18: 4,
 question_19: 1,
 question_20: 5,
