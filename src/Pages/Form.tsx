@@ -146,7 +146,7 @@ const FormPage = () => {
         } else {
           alert("Form submitted successfully");
           setIsSubmitted(true)
-          console.log(getNewData(data.Responses))
+          console.log(getNewData(data.responses))
         }
       })
       .catch((error) => {
