@@ -67,6 +67,22 @@ export default function AdminPage(): JSX.Element{
     const [allData, setAllData] = useState<any[]>([])
     const [selectedRollNumber, setSelectedRollNumber] = useState(allData[0]?.RollNumber);
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const handleAdminLogin = () => {
+        const adminPassword = 'yourAdminPassword'; // Replace this with your actual admin password
+
+        const inputPassword = prompt('Enter Admin Password:');
+        if (inputPassword === adminPassword) {
+        setLoggedIn(true);
+        } else {
+        alert('Invalid password. Please try again.');
+        }
+    };
+
+    const handleLogout = () => {
+        setLoggedIn(false);
+    };
 
     const handleSelectChange = (event: any) => {
       setSelectedRollNumber(event.target.value);
@@ -86,6 +102,8 @@ export default function AdminPage(): JSX.Element{
                 console.log(err)
             })
     }, [])
+
+    if(loggedIn){
 
     if(isLoading){
         return (
@@ -122,4 +140,7 @@ export default function AdminPage(): JSX.Element{
         </div>
         )
           }
+        }else{
+            return <p>Please refresh to login.</p>
+        }
 }
