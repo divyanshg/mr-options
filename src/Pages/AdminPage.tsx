@@ -41,6 +41,7 @@ question_35:1,
 question_36:1
 }
 export const SurveyTable = ({ data }: {data: any}) => {
+  console.log(data)
   // Function to calculate the total count of each option
   const calculateTotalCount = (optionNum: number) => {
     let totalCount = 0;
