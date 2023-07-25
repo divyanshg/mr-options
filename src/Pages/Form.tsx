@@ -5,6 +5,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import styled from '@emotion/styled';
 
 import sanityClient from '../client';
+import { SurveyTable } from './AdminPage';
 
 interface Question {
   questionId: number;
@@ -40,7 +41,8 @@ const FormPage = () => {
   const [personalDetailsSubmitted, setPersonalDetailsSubmitted] =
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  //const [allData, setAllData] = useState<any[]>([])
+  const [allData, setAllData] = useState<any[]>([])
+  const [submitted, setSubmit] = useState<boolean>(false)
 
   useEffect(() => {
     // Fetch questions from Sanity
@@ -144,7 +146,8 @@ const FormPage = () => {
           }
         } else {
           alert("Form submitted successfully");
-          console.log(getNewData(JSON.parse(data.responses)))
+          setAllData(getNewData(JSON.parse(data.responses)) as unknown as any[])
+          setSubmit(true)
         }
       })
       .catch((error) => {
@@ -183,7 +186,7 @@ const FormPage = () => {
         />
         <h2 className='text-xl font-semibold'>School of Leadership and Management</h2>
       </div>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      {!submitted && <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           {!personalDetailsSubmitted && (
             <>
@@ -282,7 +285,8 @@ const FormPage = () => {
             {!personalDetailsSubmitted ? "Next" : "Submit"}
           </button>
         </Form>
-      </Formik>
+      </Formik>}
+      {submitted && <SurveyTable data={allData} />}
     </div>
   );
 };
