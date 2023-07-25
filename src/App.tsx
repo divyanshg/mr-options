@@ -215,12 +215,9 @@ const App = () => {
           )}
           {personalDetailsSubmitted && (
             <div className="pb-2">
-              <h2 className="text-xl font-semibold text-center">Questions</h2>
+              <h2 className="text-xl font-semibold text-center">Express yourself</h2>
               <h1 className="text-sm text-gray-500 text-center">
-                Please select the option that best describes you.
-              </h1>
-              <h1 className="text-sm text-gray-500 text-center">
-                Please answer all questions.
+                Modus Operandi: Indicate how frequently you do each of the following by putting a tick mark in the proper column opposite to each item. Please feel free to respond as this purely for your consumption. If you will not honest to these items you will get a negative picture of yours. 
               </h1>
               <div className="flex flex-col space-y-3 my-2">
                 {questions.map((question) => (
