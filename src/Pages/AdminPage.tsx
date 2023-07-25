@@ -80,6 +80,8 @@ export default function AdminPage(): JSX.Element{
         }
     };
 
+    useEffect(() => handleAdminLogin(), [])
+
     const handleLogout = () => {
         setLoggedIn(false);
     };
