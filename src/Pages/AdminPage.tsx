@@ -46,14 +46,14 @@ export const SurveyTable = ({ data }: {data: any}) => {
     let totalCount = 0;
     for (let i = 1; i <= 36; i++) {
       for (const student of data) {
-        if (student[`Question_${i}`] === optionNum) {
-          totalCount++;
-          break; // Break inner loop to avoid counting the same question multiple times for a student
+        if (student[`question_${i}`] === optionNum) {
+          totalCount+=student[`question_${i}`];
         }
       }
     }
-    return totalCount//*points[optionNum - 1];
+    return totalCount;
   };
+  
 
   return (
     <div className="my-4">
@@ -91,7 +91,7 @@ export const SurveyTable = ({ data }: {data: any}) => {
         <tfoot>
           <tr>
             <td className="border p-2 font-bold">Total Count</td>
-            {[1, 2, 3, 4, 5].map((optionNum) => (
+            {[1, 2, 3, 4, 5, 6].map((optionNum) => (
               <td key={optionNum} className="border p-2">
                 {calculateTotalCount(optionNum)}
               </td>
