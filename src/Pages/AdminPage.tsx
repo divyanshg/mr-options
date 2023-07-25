@@ -66,7 +66,7 @@ const SurveyTable = ({ data }: {data: any}) => {
 
 const StudentData = ({data}: any) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col my-4 border-2 border-gray-200 rounded-lg p-3">
       <div>
         <span>Student Name: </span>
         <span>{data["Student Name"]}</span>
