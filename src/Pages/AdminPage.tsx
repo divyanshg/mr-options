@@ -69,19 +69,18 @@ export default function AdminPage(): JSX.Element{
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [loggedIn, setLoggedIn] = useState(false);
 
-    const adminPassword = 'testpassword';
+    const handleAdminLogin = () => {
+        const adminPassword = 'yourAdminPassword'; // Replace this with your actual admin password
 
-    const inputPassword = prompt('Enter Admin Password:');
-    if (inputPassword === adminPassword) {
+        const inputPassword = prompt('Enter Admin Password:');
+        if (inputPassword === adminPassword) {
         setLoggedIn(true);
-    } else {
+        } else {
         alert('Invalid password. Please try again.');
-    }
-
-
-    const handleLogout = () => {
-        setLoggedIn(false);
+        }
     };
+
+    useEffect(() => handleAdminLogin(), [])
 
     const handleSelectChange = (event: any) => {
       setSelectedRollNumber(event.target.value);
