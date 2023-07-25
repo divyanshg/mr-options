@@ -52,7 +52,7 @@ export const SurveyTable = ({ data }: {data: any}) => {
         }
       }
     }
-    return totalCount*points[optionNum - 1];
+    return totalCount//*points[optionNum - 1];
   };
 
   return (
@@ -78,9 +78,9 @@ export const SurveyTable = ({ data }: {data: any}) => {
                   {data.map((student: any) => (
                     <span
                       key={student.RollNumber}
-                      className={student[`Question_${questionNum}`] === optionNum ? 'font-bold' : ''}
+                      className={student[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
                     >
-                      {student[`Question_${questionNum}`] === optionNum ? '*' : ''}
+                      {student[`question_${questionNum}`] === optionNum ? '*' : ''}
                     </span>
                   ))}
                 </td>
