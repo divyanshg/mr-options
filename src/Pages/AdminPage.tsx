@@ -64,6 +64,25 @@ const SurveyTable = ({ data }: {data: any}) => {
   );
 };
 
+const StudentData = ({data}: any) => {
+  return (
+    <div className="flex flex-col">
+      <div>
+        <span>Student Name: </span>
+        <span>{data["Student Name"]}</span>
+      </div>
+      <div>
+        <span>Branch: </span>
+        <span>{data.Branch}</span>
+      </div>
+      <div>
+        <span>Semester: </span>
+        <span>{data.Semester}</span>
+      </div>
+    </div>
+  )
+}
+
 
 export default function AdminPage(): JSX.Element{
     const [allData, setAllData] = useState<any[]>([])
@@ -137,6 +156,7 @@ export default function AdminPage(): JSX.Element{
             ))}
             </select>
         </div>
+        {selectedStudentData && <StudentData data={selectedStudentData} /> }
         {selectedStudentData && <SurveyTable data={[selectedStudentData]} />}
         </div>
         )
