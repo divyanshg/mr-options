@@ -1,6 +1,8 @@
-import {useEffect , useState} from "react";
+import { useEffect, useState } from 'react';
 
 const points = [0,1,2,3,4, "*"]
+const letters = ["A", "B", "C", "D", "E", "F"]
+
 const markings: Record<string, number> =
 {
 question_1: 3,
@@ -41,7 +43,6 @@ question_35:1,
 question_36:1
 }
 export const SurveyTable = ({ data }: {data: any}) => {
-  console.log(data)
   // Function to calculate the total count of each option
   const calculateTotalCount = (optionNum: number) => {
     let totalCount = 0;
@@ -61,21 +62,21 @@ export const SurveyTable = ({ data }: {data: any}) => {
       <table className="w-full border-collapse table-auto">
         <thead>
           <tr>
-            <th className="border p-2">Question No.</th>
-            <th className="border p-2">I</th>
-            <th className="border p-2">II</th>
-            <th className="border p-2">III</th>
-            <th className="border p-2">IV</th>
-            <th className="border p-2">V</th>
-            <th className="border p-2">VI</th>
+            <th className="p-2 border">Question No.</th>
+            <th className="p-2 border">I</th>
+            <th className="p-2 border">II</th>
+            <th className="p-2 border">III</th>
+            <th className="p-2 border">IV</th>
+            <th className="p-2 border">V</th>
+            <th className="p-2 border">VI</th>
           </tr>
         </thead>
         <tbody>
           {Array.from({ length: 36 }, (_, index) => index + 1).map((questionNum) => (
             <tr key={questionNum} className="text-center">
-              <td className="border p-2">{questionNum}</td>
+              <td className="p-2 border">{questionNum}</td>
               {[1, 2, 3, 4, 5, 6].map((optionNum) => (
-                <td key={optionNum} className="border p-2">
+                <td key={optionNum} className="p-2 border">
                   {data.map((student: any) => (
                     <span
                       key={student.RollNumber}
@@ -91,10 +92,10 @@ export const SurveyTable = ({ data }: {data: any}) => {
         </tbody>
         <tfoot>
           <tr>
-            <td className="border p-2 font-bold">Total Count</td>
+            <td className="p-2 font-bold text-center border">Total Count</td>
             {[1, 2, 3, 4, 5, 6].map((optionNum) => (
-              <td key={optionNum} className="border p-2">
-                {calculateTotalCount(optionNum)}
+              <td key={optionNum} className="p-2 text-center border">
+                <span className='font-semibold'>{letters[optionNum - 1]} - {calculateTotalCount(optionNum)}</span>
               </td>
             ))}
           </tr>
@@ -106,22 +107,22 @@ export const SurveyTable = ({ data }: {data: any}) => {
 
 const StudentData = ({data}: any) => {
   return (
-    <div className="flex flex-col my-4 border-2 border-gray-200 rounded-lg p-3">
+    <div className="flex flex-col p-3 my-4 border-2 border-gray-200 rounded-lg">
       <div>
-        <span className="text-lg">Student Name: </span>
-        <span className="text-lg">{data["Student Name"]}</span>
+        <span className="text-lg font-semibold underline">Student Name: </span>
+        <span className="text-lg font-semibold">{data["Student Name"]}</span>
       </div>
       <div>
-        <span className="text-lg">Branch: </span>
-        <span className="text-lg">{data.Branch}</span>
+        <span className="text-lg font-semibold underline">Branch: </span>
+        <span className="text-lg font-semibold">{data.Branch}</span>
       </div>
       <div>
-        <span className="text-lg">Semester: </span>
-        <span className="text-lg">{data.Semester}</span>
+        <span className="text-lg font-semibold underline">Semester: </span>
+        <span className="text-lg font-semibold">{data.Semester}</span>
       </div>
       <div>
-        <span className="text-lg">Submitted At: </span>
-        <span className="text-lg">{data.Date}</span>
+        <span className="text-lg font-semibold underline">Submitted At: </span>
+        <span className="text-lg font-semibold">{data.Date}</span>
       </div>
     </div>
   )
@@ -177,7 +178,7 @@ export default function AdminPage(): JSX.Element{
 
         return (
         <div>
-                <div className="w-full flex flex-col items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
+                <div className="flex flex-col items-center justify-center w-full pb-2 mb-2 border-b-2 border-gray-300">
                     <img
                     src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
                     className="w-[200px] "
