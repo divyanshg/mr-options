@@ -149,13 +149,13 @@ const FormPage = (): JSX.Element => {
               alert("You have already submitted the form");
               break;
             case "RECORD_CREATED":
-              alert("Form submitted successfully");
+              alert("Thank you for patient answering! Uploading your Marks….");
               break;
             default:
               alert("Error submitting form");
           }
         } else {
-          alert("Form submitted successfully");
+          alert("Thank you for patient answering! Uploading your Marks….");
           setAllData(
             getNewData(JSON.parse(data.responses)) as unknown as any[]
           );
