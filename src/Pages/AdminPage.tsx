@@ -91,34 +91,35 @@ export default function AdminPage(): JSX.Element{
         return (
             <p>Loading...</p>
         )
-    }
+    }else{
 
-    return (
-       <div>
-            <div className="w-full flex flex-col items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
-                <img
-                src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
-                className="w-[200px] "
-                />
-                <h2 className='text-xl font-semibold'>School of Leadership and Management</h2>
-                <h2 className='text-xl font-semibold'>Responses</h2>
+        return (
+        <div>
+                <div className="w-full flex flex-col items-center justify-center mb-2 pb-2 border-b-2 border-gray-300">
+                    <img
+                    src="https://manavrachna.edu.in/wp-content/uploads/2023/04/mrnaac-jpg.jpg"
+                    className="w-[200px] "
+                    />
+                    <h2 className='text-xl font-semibold'>School of Leadership and Management</h2>
+                    <h2 className='text-xl font-semibold'>Responses</h2>
 
-            </div>
-      <div>
-        <label htmlFor="selectRollNumber">Select RollNumber:</label>
-        <select
-          id="selectRollNumber"
-          value={selectedRollNumber}
-          onChange={handleSelectChange}
-        >
-          {allData.map((student: any) => (
-            <option key={student.RollNumber} value={student.RollNumber}>
-              {student.RollNumber}
-            </option>
-          ))}
-        </select>
-      </div>
-      {selectedStudentData && <SurveyTable data={[selectedStudentData]} />}
-    </div>
-    )
+                </div>
+        <div>
+            <label htmlFor="selectRollNumber">Select RollNumber:</label>
+            <select
+            id="selectRollNumber"
+            value={selectedRollNumber}
+            onChange={handleSelectChange}
+            >
+            {allData.map((student: any) => (
+                <option key={student.RollNumber} value={student.RollNumber}>
+                {student.RollNumber}
+                </option>
+            ))}
+            </select>
+        </div>
+        {selectedStudentData && <SurveyTable data={[selectedStudentData]} />}
+        </div>
+        )
+          }
 }
