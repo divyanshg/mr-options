@@ -129,10 +129,10 @@ const FormPage = () => {
       body: formData,
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (!data.success) {
-          switch (data.code) {
+      .then((_data) => {
+        console.log(_data);
+        if (!_data.success) {
+          switch (_data.code) {
             case "RECORD_EXISTS":
               alert("You have already submitted the form");
               break;
@@ -144,7 +144,7 @@ const FormPage = () => {
           }
         } else {
           alert("Form submitted successfully");
-          console.log(getNewData(data.responses))
+          console.log(getNewData(JSON.parse(data.responses)))
         }
       })
       .catch((error) => {
