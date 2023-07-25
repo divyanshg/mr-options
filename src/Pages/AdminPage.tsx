@@ -2,7 +2,7 @@ import {useEffect , useState} from "react";
 
 const SurveyTable = ({ data }: {data: any}) => {
   // Function to calculate the total count of each option
-  const calculateTotalCount = (optionNum) => {
+  const calculateTotalCount = (optionNum: number) => {
     let totalCount = 0;
     for (let i = 1; i <= 36; i++) {
       for (const student of data) {
