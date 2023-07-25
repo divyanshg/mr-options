@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 export default function AdminPage(): JSX.Element{
     //const [allData, setAllData] = useState([])
