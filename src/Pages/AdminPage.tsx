@@ -21,11 +21,11 @@ const SurveyTable = ({ data }: {data: any}) => {
         <thead>
           <tr>
             <th className="border p-2">Question No.</th>
-            <th className="border p-2">Option 1</th>
-            <th className="border p-2">Option 2</th>
-            <th className="border p-2">Option 3</th>
-            <th className="border p-2">Option 4</th>
-            <th className="border p-2">Option 5</th>
+            <th className="border p-2">Almost Never</th>
+            <th className="border p-2">Rarely</th>
+            <th className="border p-2">Sometimes</th>
+            <th className="border p-2">Frequently</th>
+            <th className="border p-2">Very Frequently</th>
           </tr>
         </thead>
         <tbody>
