@@ -79,6 +79,10 @@ const StudentData = ({data}: any) => {
         <span className="text-lg">Semester: </span>
         <span className="text-lg">{data.Semester}</span>
       </div>
+      <div>
+        <span className="text-lg">Submitted At: </span>
+        <span className="text-lg">{data.Date}</span>
+      </div>
     </div>
   )
 }
