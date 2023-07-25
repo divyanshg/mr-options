@@ -1,6 +1,6 @@
 import {useEffect , useState} from "react";
 
-//const points = [0,1,2,3,4]
+const points = [0,1,2,3,4]
 const markings =[
 {
 question_1: 3,
@@ -73,14 +73,14 @@ export const SurveyTable = ({ data }: {data: any}) => {
           {Array.from({ length: 36 }, (_, index) => index + 1).map((questionNum) => (
             <tr key={questionNum} className="text-center">
               <td className="border p-2">{questionNum}</td>
-              {[1, 2, 3, 4, 5].map((optionNum) => (
+              {[1, 2, 3, 4, 5, 6].map((optionNum) => (
                 <td key={optionNum} className="border p-2">
                   {data.map((student: any) => (
                     <span
                       key={student.RollNumber}
                       className={student[`question_${questionNum}`] === optionNum ? 'font-bold' : ''}
                     >
-                      {student[`question_${questionNum}`] === optionNum ? '*' : ''}
+                      {student[`question_${questionNum}`] === optionNum ? points[optionNum - 1] : ''}
                     </span>
                   ))}
                 </td>
