@@ -40,7 +40,6 @@ const FormPage = () => {
   const [personalDetailsSubmitted, setPersonalDetailsSubmitted] =
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   //const [allData, setAllData] = useState<any[]>([])
 
   useEffect(() => {
@@ -145,7 +144,6 @@ const FormPage = () => {
           }
         } else {
           alert("Form submitted successfully");
-          setIsSubmitted(true)
           console.log(getNewData(data.responses))
         }
       })
