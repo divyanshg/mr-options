@@ -47,7 +47,7 @@ export const SurveyTable = ({ data }: {data: any}) => {
     for (let i = 1; i <= 36; i++) {
       for (const student of data) {
         if (student[`question_${i}`] === optionNum) {
-          totalCount+=student[`question_${i}`];
+          totalCount+=student[`question_${optionNum}`];
         }
       }
     }
