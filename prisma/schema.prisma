@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Student {
+  id         String      @id @default(cuid())
+  name       String
+  rollNumber String      @unique
+  branch     String
+  semester   String
+  Responses  Responses[]
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+model Employee {
+  id             String      @id @default(cuid())
+  name           String?
+  age            Int?
+  workExperience String
+  orgName        String
+  gender         Gender
+  Responses      Responses[]
+}
+
+model Survey {
+  id          String      @id @default(cuid())
+  title       String
+  description String?
+  questions   Question[]
+  Responses   Responses[]
+}
+
+model Question {
+  question_id     Int         @id @default(autoincrement())
+  question_number Int
+  survey_id       String
+  question_text   String
+  options         Option[]
+  survey          Survey      @relation(fields: [survey_id], references: [id])
+  Responses       Responses[]
+}
+
+model Option {
+  option_id   Int         @id @default(autoincrement())
+  option_number Int
+  option_text String
+  score       Int?
+  question    Question[]
+  Responses   Responses[]
+}
+
+model Responses {
+  id          String    @id @default(cuid())
+  survey_id   String
+  question_id Int
+  option_id   Int
+  student_id  String?
+  employee_id String?
+  createdAt   DateTime  @default(now())
+  survey      Survey    @relation(fields: [survey_id], references: [id])
+  question    Question  @relation(fields: [question_id], references: [question_id])
+  option      Option    @relation(fields: [option_id], references: [option_id])
+  student     Student?  @relation(fields: [student_id], references: [id])
+  employee    Employee? @relation(fields: [employee_id], references: [id])
+}
